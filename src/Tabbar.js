@@ -9,15 +9,14 @@ function Tabbar() {
                 {
                     ['Home', 'Profile', 'Msg','Photos','Setting'].map((item, index) => {
                         return(
-                            <li className='list' key={index} onClick={
+                            <li className={["list", index === 0?"active":null].join(' ')} key={index} onClick={
                                 () => {
                                     let list = document.querySelectorAll('.list');
-                                    console.log(list);
                                     list.forEach((item) => item.classList.remove('active'));
                                     list[index].classList.add('active');
                                 }
                             }>
-                                <a href='#{$index}' key={index}>
+                                <a href={['#',index].join('')} key={index}>
                                 <span className='icon'>
                                     <ion-icon name={icons[index]}></ion-icon>
                                 </span>
